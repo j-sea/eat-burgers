@@ -32,7 +32,7 @@ var orm = {
             }
         );
     },
-    updateOne: function (tableName, updateObject, whereObject) {
+    updateOne: function (tableName, updateObject, whereObject, callback) {
         // Create our UPDATE query to update a specified row in the given table
         connection.query(
             'UPDATE ?? SET ? WHERE ?',

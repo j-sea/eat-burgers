@@ -3,23 +3,25 @@
     <div class="row">
         <div class="col-6">
             <h2>Eat a burger:</h2>
-            <ul id="burgers-menu">
-                {{#each burgersMenu}}
-                <li>{{this.id}}. {{this.burger_name}}</li>
-                {{/each}}
-            </ul>
+            <form action="PUT /api/burgers">
+                <ul id="burgers-menu">
+                    {{#each burgersMenu}}
+                        {{> burgers-menu-item}}
+                    {{/each}}
+                </ul>
+            </form>
         </div>
         <div class="col-6">
             <h2>Burgers eaten:</h2>
             <ul id="burgers-eaten">
                 {{#each burgersEaten}}
-                <li>{{this.id}}. {{this.burger_name}}</li>
+                    {{> burgers-eaten-item}}
                 {{/each}}
             </ul>
         </div>
     </div>
 </div>
-<form action="/api/burgers" method="POST" id="burger-form">
+<form action="/api/burgers" method="POST">
     <label>
         <h2>Type in a burger you want to eat and get one:</h2>
         <input type="text" name="burger">

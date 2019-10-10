@@ -29,28 +29,20 @@ router.post('/api/burgers', function (req, res) {
         burger_name: req.body.burger,
     },
     function (results) {
-        res.json({
-            id: results.insertId,
-        });
+        res.redirect('/');
     });
 });
 
 router.put('/api/burgers/:id', function (req, res) {
-    burger.insertOne(
+    burger.updateOne(
         {
-            devoured: req.body.devoured,
+            devoured: (req.body.devoured.toLowerCase() === 'true'),
         },
         {
-            id: req.params.id,
+            id: parseInt(req.params.id),
         },
         function (results) {
-            if (results.changedRows == 0) {
-                // If no rows were changed, then the ID must not exist, so 404
-                return res.status(404).end();
-            }
-            else {
-                res.status(200).end();
-            }
+            res.json(results);
         }
     );
 });
