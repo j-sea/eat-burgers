@@ -1,0 +1,33 @@
+<h1>Eat Burgers!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Eat a burger:</h2>
+            <ul id="burgers-menu">
+                {{#each burgersMenu}}
+                <li>{{this.id}}. {{this.burger_name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-6">
+            <h2>Burgers eaten:</h2>
+            <ul id="burgers-eaten">
+                {{#each burgersEaten}}
+                <li>{{this.id}}. {{this.burger_name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+<form action="/api/burgers" method="POST" id="burger-form">
+    <label>
+        <h2>Type in a burger you want to eat and get one:</h2>
+        <input type="text" name="burger">
+    </label>
+    <button type="submit">Get One</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="./assets/js/script.js"></script>
